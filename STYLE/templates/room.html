@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container mt-5"> 
+  {% for i in room %}
+  <div class="card mb-3 shadow-sm bg-body-tertiary rounded" style="max-width: 840px;"> 
+      <div class="row g-0"> 
+          <!-- Image Section -->
+          <div class="col-md-4 position-relative">
+              <img src="{{i.image.url}}" class="img-fluid p-2" alt="{{i.image}}" style="object-fit: cover; height: 200px; width: 100%; border-radius: 20px;">
+              <!-- Heart Icon -->
+              <span class="position-absolute top-0 end-0 p-3">
+                  <i class="bi bi-heart" style="font-size: 1.5rem; color: red;"></i>
+              </span>
+          </div>
+
+          <!-- Content Section -->
+          <div class="col-md-8">
+              <div class="card-body mx-3">
+                  <h4 class="card-title my-2">{{i.head}}</h4>
+                  <h6 class="card-text">
+                      <i class="bi bi-geo-alt"></i> {{i.location}}
+                  </h6>
+
+                  <!-- Rating Section -->
+                  <h5 class="my-2 ">
+                      <i class="bi bi-star"></i>
+                      <i class="bi bi-star"></i>
+                      <i class="bi bi-star"></i>
+                      <i class="bi bi-star"></i>
+                      <i class="bi bi-star"></i>
+                  </h5>
+
+                  <!-- Price Section -->
+                  <h5 class="card-text my-2">
+                      <small class="text-body-secondary">
+                          <span style="text-decoration: line-through;" class="text-danger mx-3">₹30000</span> ₹{{i.price}}
+                      </small>
+                  </h5>
+
+                  <!-- Book Now Button -->
+                  <a href="{% url 'roomId' i.head %}" class="btn btn-danger my-2">Book Now</a>
+              </div>
+          </div>
+      </div>
+  </div>
+  {% endfor %}
+</div>
+
+
+{% endblock content %}

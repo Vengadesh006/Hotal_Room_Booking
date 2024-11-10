@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="full-image">
+    <img src="{% static 'image/travel.webp' %}" alt="">
+</div>
+<div class="container text-center">
+    <div class="row justify-content-center">
+        {% for i in view %}
+       
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+            <div class="card h-100">
+                <img src="{{i.image.url}}" class="card-img-top" alt="...">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">{{i.title}}</h5>
+                    <a href="/room/" class="btn btn-danger mt-auto ">See More</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+<hr>
+
+<div class="container text-center">
+    <div class="row align-items-center">
+        <div class="col-12 col-md-6 mb-3">
+            <img src="https://assets.oyoroomscdn.com/cmsMedia/b44cad94-daf3-4989-b4d6-8b22487c589a.png" class="img-fluid" alt="">
+        </div>
+        <div class="col-12 col-md-6 head-items">
+            <div>
+                <h2 class="pb-3"> There's an Hotel around. Always. </h2>
+                <h6 class="pb-5"> More Destinations. More Ease. More Affordable </h6>
+                <div class="d-flex justify-content-center gap-5">
+                    <div>
+                        <h3> 35+ </h3> 
+                        <span> Countries </span>
+                    </div>
+                    <div>
+                        <h3> 1000+ </h3> 
+                        <span>Hotel & Home</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

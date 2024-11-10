@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="container ">
+    <div class="row justify-content-center">
+        <h5 class="text-center my-4">Booking Have to Enjoy 👨‍👩‍👧‍👦 </h5>
+        <hr class="w-100 mb-4">
+        
+        {% for i in details %}
+        <div class="col">
+            <div class="card" style="width: 100%;">
+                <img src="{{i.image.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title"> {{i.head}} </h5>
+                  <p class="card-text"> Take a few minutes of every day to fantasize about how you would wander, travel, or explore if you could .</p>
+                  <a href="#" class="btn btn-primary w-100 mb-3"> Welcome </a>
+                </div>
+              </div>
+        </div>
+        {% endfor %}
+        
+        <div class="col-12 col-md-6 shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+            <form action="" method="POST">
+                <h5 class="text-center mb-5" > CHECK INFORMATIONS  </h5>
+                {% csrf_token %}
+                {{forms.as_p}}
+                <div class="center d-flex justify-content-center">
+                    <button type="submit" class="btn btn-danger my-4">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
